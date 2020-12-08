@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import FilterableProductTable from './components/products/filterableProductTable'
 
-function App() {
+const productsData = [
+  { name: "Football", price: 49.99, inStock: true, category: "Sporting Goods" },
+  { name: "Baseball", price: 9.99, inStock: true, category: "Sporting Goods" },
+  { name: "Basketball", price: 29.99, inStock: false, category: "Sporting Goods" },
+  { name: "iPod Touch", price: 99.99, inStock: true, category: "Electronics" },
+  { name: "iPhone 5", price: 399.99, inStock: false, category: "Electronics" },
+  { name: "Nexus 7", price: 199.99, inStock: true, category: "Electronics" },
+]
+
+function App(props) {
+  // props.productsList = [...productsData];
+  // const [productsList, setProducts] = useState([...productList]);
+  // props.onDelete = ({ name }) => {
+  //   let newProducts = this.state.products.filter(product => product.name !== name);
+  //   this.setState({ products: newProducts })
+  // };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div className="container">
+      <FilterableProductTable products={productsData} />
+    </div>)
+
 }
 
 export default App;
